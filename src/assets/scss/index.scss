@@ -1,0 +1,17 @@
+@import "./colors.scss";
+@import "./dimens.scss";
+@import "./variables.scss";
+@import "./reset.scss";
+@import "./scrollbar.scss";
+@import "./common.scss";
+@import "./mixins.scss";
+
+.light {
+  background-color: map-get($light, main);
+  @include theme($light);
+}
+
+.dark {
+  background-color: map-get($dark, main);
+  @include theme($dark);
+}
