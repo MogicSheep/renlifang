@@ -49,15 +49,20 @@
                                 <div class="xpanel">
                                     <div class="fill-h" id="p4">
                                         <!-- 搜索框 -->
+                                        <br><br><br><br>
                                         <el-input placeholder="请输入内容" v-model="queryInfo.query" clearable @clear='getGoodsList'>
                                             <el-button slot="append" icon="el-icon-search" @click="getGoodsList">搜索</el-button>
                                         </el-input>
+
+                                        <dv-digital-flop :config="config4" style="width:200px;height:50px;" />
                                     </div>
                                 </div>
                             </div>
                             <div class="xpanel-wrapper xpanel-wrapper-3">
                                 <div class="xpanel">
-                                    <div class="fill-h" id="p5"></div>
+                                    <div class="fill-h" id="p5">
+                                        <div id="table1" style="width: 325px;height:175px;float:left;"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="xpanel-wrapper xpanel-wrapper-3">
@@ -80,6 +85,97 @@ import demo from '@/components/demo.vue'
 export default {
     name:"focus",
     header: ['列1', '列2', '列3'],
+    methods:{
+    drawChart(){
+        let myChart = this.$echarts.init(document.getElementById("table1"));
+        let option = {
+        backgroundColor: "#0f375f",
+        legend: {
+            orient: 'vertical',
+            top: "center",
+            right: "5%",
+            data: ['rose1', 'rose2', 'rose3', 'rose4', 'rose5', 'rose6', 'rose7'],
+            textStyle: {
+                color: "#fff",
+                fontSize: 16
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: '{a} <br/>{b} : {c} ({d}%)'
+        },
+        series: [{
+            name: '半径模式',
+            type: 'pie',
+            radius: ['30%', '80%'],
+            center: ['40%', '50%'],
+            roseType: 'radius',
+            label: {
+                show: true,
+                normal: {
+                    position: 'outside',
+                    fontSize: 16
+                }
+            },
+            labelLine: {
+                length: 1,
+                length2: 20,
+                smooth: true
+            },
+            data: [{
+                    value: 1,
+                    name: 'rose1',
+                    itemStyle: {
+                        color: "rgba(50,123,250,0.7)",
+                        borderColor: "rgba(50,123,250,1)",
+                        borderWidth: 3
+                    }
+                },
+                {
+                    value: 2,
+                    name: 'rose2',
+                    itemStyle: {
+                        color: "rgba(244,201,7,0.7)",
+                        borderColor: "rgba(244,201,7,1)",
+                        borderWidth: 3
+                    }
+                },
+                {
+                    value: 3,
+                    name: 'rose3',
+                    itemStyle: {
+                        color: "rgba(23,216,161,0.7)",
+                        borderColor: "rgba(23,216,161,1)",
+                        borderWidth: 3
+                    }
+                },
+                {
+                    value: 4,
+                    name: 'rose4',
+                    itemStyle: {
+                        color: "rgba(122,60,235,0.7)",
+                        borderColor: "rgba(122,60,235,1)",
+                        borderWidth: 3
+                    }
+                },
+                {
+                    value: 5,
+                    name: 'rose5',
+                    itemStyle: {
+                        color: "rgba(15,197,243,0.7)",
+                        borderColor: "rgba(15,197,243,1)",
+                        borderWidth: 3
+                    }
+                }
+            ]
+            }]
+        }//option
+        myChart.setOption(option);
+        },//drawchart
+    },
+    mounted() {
+        this.drawChart();
+    },
     data()
     {
         return {
