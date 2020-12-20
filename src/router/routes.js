@@ -22,6 +22,11 @@ const routes = [
     component: () => import("../views/login/Login.vue")
   },
   {
+    path: "/LoginOut",
+    name: "LoginOut",
+    component: () => import("../views/login/Login.vue")
+  },
+  {
     path: '/HomePage',
     component: () => import("@/components/HomePage.vue"),
     name: '系统首页',

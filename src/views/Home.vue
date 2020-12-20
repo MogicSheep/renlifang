@@ -9,7 +9,7 @@
             </el-col>
 
             <el-col :span="20" >
-              <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+              <el-menu :default-active="this.$router.path" class="el-menu-demo" mode="horizontal" @select="handleSelect" router>
                 <el-menu-item index="1"><i class="el-icon-s-home"></i>首页</el-menu-item>
                 <el-menu-item index="2">电子档案 - admin</el-menu-item>
                 <el-menu-item index="3">电子档案 - user1</el-menu-item>
@@ -19,7 +19,7 @@
                   <template slot="title">admin</template>
                   <el-menu-item index="1-1">账号管理</el-menu-item>
                   <el-menu-item index="1-2">服务中心</el-menu-item>
-                  <el-menu-item index="1-3">登出</el-menu-item>
+                  <el-menu-item index="/login">登出</el-menu-item>
                 </el-submenu>
               </el-menu>
             </el-col>
