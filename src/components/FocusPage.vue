@@ -10,9 +10,52 @@
 	    </head>
 	
         <body class="bg01">
-            <header class="header">
+            <!-- <header class="header">
                 <h3>人立方</h3>
-            </header>
+            </header> -->
+            <!-- <em-header :headTitle = "pageTitle">
+            </em-header> -->
+            <div class="header">
+                <el-row>
+                    <el-col span="10">
+                        <el-cow>
+                            <el-col span="8" class="coll1">
+                                <br>
+                                <el-button type="primary" @click="addRoutes1" round>档案中心</el-button>
+                            </el-col>
+                            <el-col span="8" class="coll1">
+                                <br>
+                                <el-button type="primary" @click="addRoutes2" round>人员画像</el-button>
+                            </el-col>
+                            <el-col span="8" class="coll1">
+                                <br>
+                                <el-button type="primary" @click="addRoutes3" round>档案管理</el-button>
+                            </el-col>
+                        </el-cow>
+                    </el-col>
+                    <el-col span="4">
+                        <h3>人立方</h3>
+                    </el-col>
+                    <el-col span="10">
+                        <el-row>
+                            <el-col span="7">
+                                <br>
+                                <el-button type="primary" @click="addRoutes4" round>人员轨迹</el-button>
+                            </el-col>
+                            <el-col span="10">
+                                <br>
+                                <el-input placeholder="请输入内容" v-model="queryInfo.query" clearable @clear='getGoodsList'>
+                                    <el-button slot="append" icon="el-icon-search" @click="getGoodsList">搜索</el-button>
+                                </el-input>
+                            </el-col>
+                            <el-col span="7">
+                                <h3>登录栏3</h3>
+                            </el-col>
+                        </el-row>
+                    </el-col>
+                </el-row>
+            </div>
+            
             <!--
                 p1    p4
                    p3 p5
@@ -49,12 +92,12 @@
                                 <div class="xpanel">
                                     <div class="fill-h" id="p4">
                                         <!-- 搜索框 -->
-                                        <br><br><br><br>
+                                        <!-- <br><br><br><br>
                                         <el-input placeholder="请输入内容" v-model="queryInfo.query" clearable @clear='getGoodsList'>
                                             <el-button slot="append" icon="el-icon-search" @click="getGoodsList">搜索</el-button>
                                         </el-input>
 
-                                        <dv-digital-flop :config="config4" style="width:200px;height:50px;" />
+                                        <dv-digital-flop :config="config4" style="width:200px;height:50px;" /> -->
                                     </div>
                                 </div>
                             </div>
@@ -81,11 +124,15 @@
 </template>>
 
 <script>
+// import EmHeader from "@/components/header.vue"
 import demo from '@/components/demo.vue'
 export default {
     name:"focus",
     header: ['列1', '列2', '列3'],
     methods:{
+        addRoutes1() {
+                this.$router.push('/ArchivesPage')
+            },
     drawChart(){
         let myChart = this.$echarts.init(document.getElementById("table1"));
         let option = {
@@ -94,7 +141,7 @@ export default {
             orient: 'vertical',
             top: "center",
             right: "5%",
-            data: ['rose1', 'rose2', 'rose3', 'rose4', 'rose5', 'rose6', 'rose7'],
+            data: ['老师', '研究生', '教授', '博导', '本科'],
             textStyle: {
                 color: "#fff",
                 fontSize: 16
@@ -105,10 +152,10 @@ export default {
             formatter: '{a} <br/>{b} : {c} ({d}%)'
         },
         series: [{
-            name: '半径模式',
+            name: '人员数量占比',
             type: 'pie',
             radius: ['30%', '80%'],
-            center: ['40%', '50%'],
+            center: ['32%', '50%'],
             roseType: 'radius',
             label: {
                 show: true,
@@ -119,12 +166,12 @@ export default {
             },
             labelLine: {
                 length: 1,
-                length2: 20,
+                length2: 10,
                 smooth: true
             },
             data: [{
-                    value: 1,
-                    name: 'rose1',
+                    value: 77,
+                    name: '老师',
                     itemStyle: {
                         color: "rgba(50,123,250,0.7)",
                         borderColor: "rgba(50,123,250,1)",
@@ -132,8 +179,8 @@ export default {
                     }
                 },
                 {
-                    value: 2,
-                    name: 'rose2',
+                    value: 137,
+                    name: '研究生',
                     itemStyle: {
                         color: "rgba(244,201,7,0.7)",
                         borderColor: "rgba(244,201,7,1)",
@@ -141,8 +188,8 @@ export default {
                     }
                 },
                 {
-                    value: 3,
-                    name: 'rose3',
+                    value: 123,
+                    name: '教授',
                     itemStyle: {
                         color: "rgba(23,216,161,0.7)",
                         borderColor: "rgba(23,216,161,1)",
@@ -150,8 +197,8 @@ export default {
                     }
                 },
                 {
-                    value: 4,
-                    name: 'rose4',
+                    value: 55,
+                    name: '博导',
                     itemStyle: {
                         color: "rgba(122,60,235,0.7)",
                         borderColor: "rgba(122,60,235,1)",
@@ -159,8 +206,8 @@ export default {
                     }
                 },
                 {
-                    value: 5,
-                    name: 'rose5',
+                    value: 98,
+                    name: '本科',
                     itemStyle: {
                         color: "rgba(15,197,243,0.7)",
                         borderColor: "rgba(15,197,243,1)",
@@ -179,6 +226,7 @@ export default {
     data()
     {
         return {
+            pageTitle:'人立方',
             queryInfo:{
                     query: '',
                     pagenum: 1,
@@ -212,16 +260,12 @@ export default {
             },
             "config2":{
                 data:[
-                    ['<span style="color:#37a2da;">行1列1</span>', '行1列2', '行1列3'],
-                    ['行2列1', '<span style="color:#32c5e9;">行2列2</span>', '行2列3'],
-                    ['行3列1', '行3列2', '<span style="color:#67e0e3;">行3列3</span>'],
-                    ['行4列1', '<span style="color:#9fe6b8;">行4列2</span>', '行4列3'],
-                    ['<span style="color:#ffdb5c;">行5列1</span>', '行5列2', '行5列3'],
-                    ['行6列1', '<span style="color:#ff9f7f;">行6列2</span>', '行6列3'],
-                    ['行7列1', '行7列2', '<span style="color:#fb7293;">行7列3</span>'],
-                    ['行8列1', '<span style="color:#e062ae;">行8列2</span>', '行8列3'],
-                    ['<span style="color:#e690d1;">行9列1</span>', '行9列2', '行9列3'],
-                    ['行10列1', '<span style="color:#e7bcf3;">行10列2</span>', '行10列3']
+                    ['<span style="color:#37a2da;">老师</span>', '77', '15%'],
+                    ['研究生', '<span style="color:#32c5e9;">137</span>', '28%'],
+                    ['教授', '123', '<span style="color:#67e0e3;">25%</span>'],
+                    ['博导', '<span style="color:#9fe6b8;">55</span>', '11%'],
+                    ['<span style="color:#ffdb5c;">本科</span>', '98', '21%'],
+                    ['总人数', '<span style="color:#ff9f7f;">490</span>', '100%'],
                 ],
                 index: true,
                 columnWidth: [50],
@@ -234,7 +278,8 @@ export default {
         this.getGoodsList();
     },
     components: {
-        'Demo': demo
+        'Demo': demo,
+        // EmHeader
     }
 }
 </script>>
@@ -273,13 +318,18 @@ export default {
         padding:0;
         line-height:50px;
         text-align:center;
-        font-size:24px;
+        font-size:36px;
         color:#5dc2fe;
     }
     .wrapper {position:absolute;top:80px;bottom:0;left:0;right:0;min-height:555px;box-sizing:border-box;}
     .container-fluid {height:100%;min-height:100%;}
     .row {margin-left:10px;margin-right:10px;}
     .row>div {padding-left:7px;padding-right:8px;}
+    .coll{
+        float:right;
+        height: 100%;
+        width: 33%;
+    }
     .coll1{
         float:left;
         height: 100%;
