@@ -38,17 +38,18 @@
                     </el-col>
                     <el-col span="10">
                         <el-row>
-                            <el-col span="7">
+                            <el-col span="12">
                                 <br>
                                 <el-button type="primary" @click="addRoutes4" round>人员轨迹</el-button>
                             </el-col>
-                            <el-col span="10">
-                                <br>
-                                <el-input placeholder="请输入内容" v-model="queryInfo.query" clearable @clear='getGoodsList'>
-                                    <el-button slot="append" icon="el-icon-search" @click="getGoodsList">搜索</el-button>
-                                </el-input>
-                            </el-col>
-                            <el-col span="7">
+                            <!-- <el-col span="12"> -->
+                                <!-- <br> -->
+                                
+                                <!-- <el-input placeholder="请输入内容" v-model="queryInfo.query" clearable @clear='getGoodsList' keyup.enter.native="login"> -->
+                                    <!-- <el-button slot="append" icon="el-icon-search" @click="getGoodsList">搜索</el-button> -->
+                                <!-- </el-input> -->
+                            <!-- </el-col> -->
+                            <el-col span="12">
                                 <h3>登录栏3</h3>
                             </el-col>
                         </el-row>
@@ -82,7 +83,7 @@
                             <div class="xpanel-wrapper xpanel-wrapper-1">
                                 <div class="xpanel">
                                     <div class="fill-h" id="p3">
-                                        <Demo style="width:675px;height:600px"></Demo>
+                                        <Demo1 style="width:600px;height:600px"></Demo1>
                                     </div>
                                 </div>
                             </div>
@@ -91,6 +92,18 @@
                             <div class="xpanel-wrapper xpanel-wrapper-3">
                                 <div class="xpanel">
                                     <div class="fill-h" id="p4">
+                                        <el-row>
+                                            <el-col :span="24">
+                                                <el-autocomplete
+                                                class="inline-input"
+                                                v-model="state2"
+                                                :fetch-suggestions="querySearch"
+                                                placeholder="请输入内容"
+                                                :trigger-on-focus="false"
+                                                @select="handleSelect"
+                                                ></el-autocomplete>
+                                            </el-col>
+                                        </el-row>
                                         <!-- 搜索框 -->
                                         <!-- <br><br><br><br>
                                         <el-input placeholder="请输入内容" v-model="queryInfo.query" clearable @clear='getGoodsList'>
@@ -125,7 +138,7 @@
 
 <script>
 // import EmHeader from "@/components/header.vue"
-import demo from '@/components/demo.vue'
+import demo1 from '@/components/demo1.vue'
 export default {
     name:"focus",
     header: ['列1', '列2', '列3'],
@@ -219,13 +232,67 @@ export default {
         }//option
         myChart.setOption(option);
         },//drawchart
+        querySearch(queryString, cb) {
+            var restaurants = this.restaurants;
+            var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
+            // 调用 callback 返回建议列表的数据
+            cb(results);
+        },
+        createFilter(queryString) {
+            return (restaurant) => {
+            return (restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+            };
+        },
+        loadAll() {
+            return [
+            {"value":"周成虎"},
+            {"value":"许闲"},
+            {"value":"许伟麟"},
+            {"value":"许珺"},
+            {"value":"许亚婷"},
+            {"value":"许明星"},
+            {"value":"许宪春"},
+            {"value":"许风国"},
+            {"value":"许耀桐"},
+            {"value":"张庭伟"},
+            {"value":"张夏恒"},
+            {"value":"张航"},
+            {"value":"张晓宇"},
+            {"value":"张明源"},
+            {"value":"张芬"},
+            {"value":"张策"},
+            {"value":"张青"},
+            {"value":"张海冰"},
+            {"value":"张蕾"},
+            {"value":"张彩霞"},
+            {"value":"郑健雄"},
+            {"value":"郑蕊"},
+            {"value":"郑鑫"},
+            {"value":"郑晓南"},
+            {"value":"郑方辉"},
+            {"value":"李学保"},
+            {"value":"李欣海"},
+            {"value":"李娜"},
+            {"value":"李鸿阶"},
+            {"value":"李彦熙"},
+            {"value":"李春江"},
+            {"value":"李维安"},
+            {"value":"李宗敏"},
+            ];
+        },
+        handleSelect(item) {
+            console.log(item);
+        }
     },
     mounted() {
         this.drawChart();
+        this.restaurants = this.loadAll();
     },
     data()
     {
         return {
+            restaurants: [],
+            state2: '',
             pageTitle:'人立方',
             queryInfo:{
                     query: '',
@@ -278,7 +345,7 @@ export default {
         this.getGoodsList();
     },
     components: {
-        'Demo': demo,
+        'Demo1': demo1,
         // EmHeader
     }
 }
