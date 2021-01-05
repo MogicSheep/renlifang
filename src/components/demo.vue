@@ -61,6 +61,7 @@ export default {
     }
   },
   created() {
+    //this.$router.go(0);
   },
   mounted() {
     this.setGraphData()

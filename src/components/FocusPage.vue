@@ -40,7 +40,7 @@
                         <el-row>
                             <el-col span="12">
                                 <br>
-                                <el-button type="primary" @click="addRoutes4" round>人员轨迹</el-button>
+                                <!-- <el-button type="primary" @click="addRoutes4" round>人员轨迹</el-button> -->
                             </el-col>
                             <!-- <el-col span="12"> -->
                                 <!-- <br> -->
@@ -49,9 +49,9 @@
                                     <!-- <el-button slot="append" icon="el-icon-search" @click="getGoodsList">搜索</el-button> -->
                                 <!-- </el-input> -->
                             <!-- </el-col> -->
-                            <el-col span="12">
+                            <!-- <el-col span="12">
                                 <h3>登录栏3</h3>
-                            </el-col>
+                            </el-col> -->
                         </el-row>
                     </el-col>
                 </el-row>
@@ -68,7 +68,9 @@
                         <div class="coll1">
                             <div class="xpanel-wrapper xpanel-wrapper-2">
                                 <div class="xpanel">
-                                    <div class="fill-h" id="p1"></div>
+                                    <div class="fill-h" id="p1">
+                                        <Demo2 style="width:400px;height:400px"></Demo2>
+                                    </div>
                                 </div>
                             </div>
                             <div class="xpanel-wrapper xpanel-wrapper-2">
@@ -92,6 +94,7 @@
                             <div class="xpanel-wrapper xpanel-wrapper-3">
                                 <div class="xpanel">
                                     <div class="fill-h" id="p4">
+                                        <!-- <span>作者画像搜索</span> -->
                                         <el-row>
                                             <el-col :span="24">
                                                 <el-autocomplete
@@ -101,6 +104,7 @@
                                                 placeholder="请输入内容"
                                                 :trigger-on-focus="false"
                                                 @select="handleSelect"
+                                                @keyup.enter.native="SearchTxt"
                                                 ></el-autocomplete>
                                             </el-col>
                                         </el-row>
@@ -139,10 +143,14 @@
 <script>
 // import EmHeader from "@/components/header.vue"
 import demo1 from '@/components/demo1.vue'
+import demo2 from '@/components/demo2.vue'
 export default {
     name:"focus",
     header: ['列1', '列2', '列3'],
     methods:{
+        SearchTxt() {
+            this.$router.push("/demo");
+        },
         addRoutes1() {
                 this.$router.push('/ArchivesPage')
             },
@@ -343,9 +351,11 @@ export default {
     created()
     {
         this.getGoodsList();
+        this.$router.go(0);
     },
     components: {
         'Demo1': demo1,
+        'Demo2': demo2,
         // EmHeader
     }
 }

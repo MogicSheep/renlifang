@@ -69,6 +69,12 @@ const routes = [
     hidden: true
   },
   {
+    path: '/demo',
+    component: () => import("@/components/demo.vue"),
+    name: '图谱',
+    hidden: true
+  },
+  {
     path: "/error",
     name: "Error",
     component: () => import("../views/error/Error.vue")
