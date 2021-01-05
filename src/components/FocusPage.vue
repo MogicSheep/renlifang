@@ -99,7 +99,7 @@
                                             <el-col :span="24">
                                                 <el-autocomplete
                                                 class="inline-input"
-                                                v-model="state2"
+                                                v-model="form.searchname"
                                                 :fetch-suggestions="querySearch"
                                                 placeholder="请输入内容"
                                                 :trigger-on-focus="false"
@@ -149,7 +149,7 @@ export default {
     header: ['列1', '列2', '列3'],
     methods:{
         SearchTxt() {
-            this.$router.push("/demo");
+            if(this.form.searchname==='周成虎')this.$router.push("/demo");
         },
         addRoutes1() {
                 this.$router.push('/ArchivesPage')
@@ -299,6 +299,9 @@ export default {
     data()
     {
         return {
+            form: {
+                searchname: ""
+            },
             restaurants: [],
             state2: '',
             pageTitle:'人立方',
