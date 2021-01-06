@@ -11,10 +11,6 @@
             <el-col :span="20" >
               <el-menu :default-active="this.$router.path" class="el-menu-demo" mode="horizontal" @select="handleSelect" router>
                 <el-menu-item index="1"><i class="el-icon-s-home"></i>首页</el-menu-item>
-                <el-menu-item index="2">电子档案 - admin</el-menu-item>
-                <el-menu-item index="3">电子档案 - user1</el-menu-item>
-                <el-menu-item index="4">电子档案 - user2</el-menu-item>
-                <el-menu-item index="5">电子档案 - user3</el-menu-item>
                 <el-submenu index="6" style="float:right">
                   <template slot="title">admin</template>
                   <el-menu-item index="1-1">账号管理</el-menu-item>
@@ -55,7 +51,7 @@
                   <router-link to="/FocusPage">
                     <el-menu-item index="3">
                       <i class="el-icon-video-camera"></i>
-                      <span slot="title">重点关注</span>
+                      <span slot="title">数据可视化平台</span>
                     </el-menu-item>
                   </router-link>
 

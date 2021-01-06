@@ -29,7 +29,7 @@
                             </el-col>
                             <el-col span="8" class="coll1">
                                 <br>
-                                <el-button type="primary" @click="addRoutes3" round>档案管理</el-button>
+                                <el-button type="primary" @click="addRoutes3" round>后台管理</el-button>
                             </el-col>
                         </el-cow>
                     </el-col>
@@ -95,6 +95,7 @@
                                 <div class="xpanel">
                                     <div class="fill-h" id="p4">
                                         <!-- <span>作者画像搜索</span> -->
+                                        <h2>作者画像搜索</h2>
                                         <el-row>
                                             <el-col :span="24">
                                                 <el-autocomplete
@@ -399,6 +400,9 @@ export default {
         line-height:50px;
         text-align:center;
         font-size:36px;
+        color:#5dc2fe;
+    }
+    h2 {
         color:#5dc2fe;
     }
     .wrapper {position:absolute;top:80px;bottom:0;left:0;right:0;min-height:555px;box-sizing:border-box;}
