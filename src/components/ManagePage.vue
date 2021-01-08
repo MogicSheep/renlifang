@@ -5,40 +5,40 @@
           <el-container>
           <el-header height="235px" class="header1">
             <div>
-              <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=324943589,1694646028&fm=26&gp=0.jpg" align="middle" class="image">
+              <img src="https://www.sdust.edu.cn/__local/A/F7/1F/7BFCC671B3241474D287FEAACDE_5C608556_262F1.jpg?e=.jpg" align="middle" class="image">
             </div>
           </el-header>
           <el-main>
             <el-row>
-                姓名 xxx
+                姓名： 周成虎
               </el-row>
               <el-row>
-                性别 x
+                性别： 男
               </el-row>
               <el-row>
-                民族 xx
+                民族： 汉族
               </el-row>
               <el-row>
-                身份证号 xxxxxxxxxxxxxxxxx
+                专业： 地图学与地理信息系
               </el-row>
               <el-row>
-                管控单位 xxxxxxx
+                单位： 中国科学院地理研究所
               </el-row>
               <el-row>
-                学历 xxxxxx
+                学位： 博导
               </el-row>
               <el-row>
-                户籍地址 xxxxxx
+                代表论文： 新冠肺炎疫情大数据分析与区域防控政策建议
               </el-row>
-              <el-row>
+              <!-- <el-row>
                 现住址 xxxxxx
-              </el-row>
-              <el-row>
+              </el-row> -->
+              <!-- <el-row>
                 已掌握落脚地 xxxxxx
-              </el-row>
-              <el-row>
+              </el-row> -->
+              <!-- <el-row>
               <el-button align="middle" size="mini" type="color" icon="el-icon-star-off" circle>收藏</el-button>
-              </el-row>
+              </el-row> -->
           </el-main>
         </el-container>
         </el-aside>
@@ -46,37 +46,37 @@
           <el-header height="90px" class="header2">
             <el-row></el-row>
             <el-row gutter="50">
-            <el-col span="4.8">
-            <router-link to="/">
-                <el-button icon="el-icon-s-home" circle>系统首页</el-button>
+            <el-col span="6">
+            <router-link to="/Home">
+                <el-button icon="el-icon-s-home" circle>后台管理</el-button>
             </router-link>
             </el-col>
-            <el-col span="4.8">
+            <el-col span="6">
             <router-link to="/ArchivesPage">
                 <el-button icon="el-icon-menu" circle>档案中心</el-button>
             </router-link>
             </el-col>
-            <el-col span="4.8">
+            <el-col span="6">
             <router-link to="/FocusPage">
-                <el-button icon="el-icon-video-camera" circle>重点关注</el-button>
+                <el-button icon="el-icon-video-camera" circle>数据可视化平台</el-button>
             </router-link>
             </el-col>
-            <el-col span="4.8">
+            <!-- <el-col span="6">
             <router-link to="/PersonPage">
                 <el-button icon="el-icon-user" circle>人员轨迹</el-button>
             </router-link>
-            </el-col>
-            <el-col span="4.8">
+            </el-col> -->
+            <el-col span="6">
             <router-link to="/SettingPage">
-                <el-button icon="el-icon-setting" circle>系统设置</el-button>
+                <el-button icon="el-icon-setting" circle>开发人员测试</el-button>
             </router-link>
             </el-col>
             </el-row>
           </el-header>
           <el-main>
             <el-tabs v-model="activeName" @tab-click="handleClick">
-              <el-tab-pane label="活动轨迹" name="first">
-                <el-row >活动栏目
+              <!-- <el-tab-pane label="活动轨迹" name="first"> -->
+                <!-- <el-row >活动栏目
                   <el-button>近期活动轨迹</el-button>
                   <el-button>历史活动轨迹</el-button>
                 </el-row>
@@ -85,8 +85,8 @@
                   <el-button>火车飞机轨迹</el-button>
                   <el-button>医疗轨迹</el-button>
                   <el-button>经常活动地点</el-button>
-                </el-row>
-                <el-timeline>
+                </el-row> -->
+                <!-- <el-timeline>
                   <el-timeline-item
                     placement="top"
                     v-for="(activity, index) in activities1"
@@ -94,10 +94,10 @@
                     :timestamp="activity.timestamp">
                       {{activity.content}}
                   </el-timeline-item>
-                </el-timeline>
-              </el-tab-pane>
-              <el-tab-pane label="上访记录" name="second">
-                <el-row>上访记录</el-row>
+                </el-timeline> -->
+              <!-- </el-tab-pane> -->
+              <el-tab-pane label="所在地区" name="second">
+                <el-row>所在地区</el-row>
                 <baidu-map :center="center" :zoom="zoom" @ready="handler" style="height:1080px" @click="getClickInfo" :scroll-wheel-zoom='true'>
                   <div v-for="marker in list" :key="marker">
                     <bm-marker  :position="{lng: marker.lng, lat: marker.lat}" :title="marker.name" @click="infoWindowOpen(marker)">
@@ -117,7 +117,7 @@
                   </el-timeline-item>
                 </el-timeline> -->
               </el-tab-pane>
-              <el-tab-pane label="通讯方式" name="third">
+              <!-- <el-tab-pane label="通讯方式" name="third">
               <el-row >身份类别
                   <el-button>全部</el-button>
                   <el-button>在用号码</el-button>
@@ -171,8 +171,8 @@
                   :total="400">
                 </el-pagination>
               </div>
-              </el-tab-pane>
-              <el-tab-pane label="虚拟身份" name="fourth">
+              </el-tab-pane> -->
+              <!-- <el-tab-pane label="虚拟身份" name="fourth">
                 <el-row >身份类别
                   <el-button>全部</el-button>
                   <el-button>QQ</el-button>
@@ -228,8 +228,8 @@
                   :total="400">
                 </el-pagination>
                 </div>
-              </el-tab-pane>
-              <el-tab-pane label="关系分析" name="fifth">
+              </el-tab-pane> -->
+              <!-- <el-tab-pane label="关系分析" name="fifth">
                 <el-table
                   :data="tableData2"
                   height="500"
@@ -278,24 +278,24 @@
                   :total="400">
                 </el-pagination>
                 </div>
-              </el-tab-pane>
-              <el-tab-pane label="图片视频" name="sixth">
-                <el-row >显示类别
+              </el-tab-pane> -->
+              <el-tab-pane label="发表著作" name="sixth">
+                <!-- <el-row >显示类别
                   <el-button>全部</el-button>
                   <el-button>图片</el-button>
                   <el-button>视频</el-button>
-                </el-row>
+                </el-row> -->
                 <el-timeline>
                   <el-timeline-item
                   placement="top"
-                  v-for="(activity, index) in activities4"
+                  v-for="(activity, index) in activities1"
                   :key="index"
                   :timestamp="activity.timestamp">
                     {{activity.content}}
                   </el-timeline-item>
                 </el-timeline>
               </el-tab-pane>
-              <el-tab-pane label="话单数据" name="seventh">
+              <!-- <el-tab-pane label="话单数据" name="seventh">
                 <el-row >话单类别
                   <el-button>通话时间最长</el-button>
                   <el-button>通话次数最多</el-button>
@@ -336,8 +336,8 @@
                     label="通话时期">
                   </el-table-column>
                 </el-table>
-              </el-tab-pane>
-              <el-tab-pane label="工作记录" name="eighth">
+              </el-tab-pane> -->
+              <!-- <el-tab-pane label="工作记录" name="eighth">
                 <el-row>工作记录</el-row>
                 <el-timeline>
                   <el-timeline-item
@@ -348,7 +348,7 @@
                     {{activity.content}}
                   </el-timeline-item>
                 </el-timeline>
-              </el-tab-pane>
+              </el-tab-pane> -->
             </el-tabs>
           </el-main>
         </el-container>
@@ -409,288 +409,223 @@
         }
       ],
           activities1: [{
-            content: '具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp: '2020-02-15'
+            content: '《洪水灾害评估信息系统研究》',
+            timestamp: '1993-06'
           }, {
-            content: '具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp: '2020-02-15'
+            content: '《地理信息系统概要》',
+            timestamp: '1993.08'
           }, {
-            content: '具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp: '2020-02-15'
+            content: '《地理元胞自动机研究》',
+            timestamp: '1999.12'
           },{
-            content: '具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp: '2020-02-15'
+            content: '《遥感影像地学理解与分析》',
+            timestamp: '1999.12'
           },{
-            content: '具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp: '2020-02-15'
+            content: '《地理学的数学模型与应用 1934-1999年《地理学报》中的数学模型及公式汇编》',
+            timestamp: '2000.10'
           },{
-            content: '具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp: '2020-02-15'
+            content: '《集成地震目录数据库及其应用研究》',
+            timestamp: '2005.09'
           },{
-            content: '具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp: '2020-02-15'
+            content: '《海洋地理信息系统：原理、技术与应用》',
+            timestamp: '2005.11'
             }],
           activities2:[{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15'
+            content:'《地理信息系统导论》',
+            timestamp:'2006.01'
           },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15'
+            content:'《地貌学辞典》',
+            timestamp:'2006.12'
           },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15'
+            content:'	《高分辨率遥感影像地学计算》',
+            timestamp:'2009.01'
           }],
-          activities3:[{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          }],
-          activities4:[{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          },{
-            content:'具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定具体内容视具体情况而定',
-            timestamp:'2020-02-15 - 2020-'
-          }],
-          tableData1: [{
-          number: '176xxxx7878',
-          name: '王小虎',
-          time: '1.5h',
-          times: '15',
-          last_time:'2020.02.15 12:00',
-          when:'2020年8月第二次上访'
-        }, {
-          number: '176xxxx7878',
-          name: '王小虎',
-          time: '1.5h',
-          times: '15',
-          last_time:'2020.02.15 12:00',
-          when:'2020年8月第二次上访'
-        }, {
-          number: '176xxxx7878',
-          name: '王小虎',
-          time: '1.5h',
-          times: '15',
-          last_time:'2020.02.15 12:00',
-          when:'2020年8月第二次上访'
-        }, {
-          number: '176xxxx7878',
-          name: '王小虎',
-          time: '1.5h',
-          times: '15',
-          last_time:'2020.02.15 12:00',
-          when:'2020年8月第二次上访'
-        }, {
-          number: '176xxxx7878',
-          name: '王小虎',
-          time: '1.5h',
-          times: '15',
-          last_time:'2020.02.15 12:00',
-          when:'2020年8月第二次上访'
-        }, {
-          number: '176xxxx7878',
-          name: '王小虎',
-          time: '1.5h',
-          times: '15',
-          last_time:'2020.02.15 12:00',
-          when:'2020年8月第二次上访'
-        }, {
-          number: '176xxxx7878',
-          name: '王小虎',
-          time: '1.5h',
-          times: '15',
-          last_time:'2020.02.15 12:00',
-          when:'2020年8月第二次上访'
-          }],
-          tableData2: [{
-          name: 'xxx',
-          age: '30',
-          number: '176xxxx7878',
-          identical: 'xxxxxxxxxxxxxxxx',
-          relation:'父子',
-          latest_time:'2020.20.20'
-        },
-        {
-          name: 'xxx',
-          age: '30',
-          number: '176xxxx7878',
-          identical: 'xxxxxxxxxxxxxxxx',
-          relation:'父子',
-          latest_time:'2020.20.20'
-        },
-        {
-          name: 'xxx',
-          age: '30',
-          number: '176xxxx7878',
-          identical: 'xxxxxxxxxxxxxxxx',
-          relation:'父子',
-          latest_time:'2020.20.20'
-        },
-        {
-          name: 'xxx',
-          age: '30',
-          number: '176xxxx7878',
-          identical: 'xxxxxxxxxxxxxxxx',
-          relation:'父子',
-          latest_time:'2020.20.20'
-        },
-        {
-          name: 'xxx',
-          age: '30',
-          number: '176xxxx7878',
-          identical: 'xxxxxxxxxxxxxxxx',
-          relation:'父子',
-          latest_time:'2020.20.20'
-        },
-        {
-          name: 'xxx',
-          age: '30',
-          number: '176xxxx7878',
-          identical: 'xxxxxxxxxxxxxxxx',
-          relation:'父子',
-          latest_time:'2020.20.20'
-          }],
-          tableData3: [{
-          type: '在用号码',
-          number: 'xxxxxxxxx',
-          latest_time: '2020.02.15',
-          latest_area: '天津市',
-          signed_time: '2018.03.21',
-          feedback: '反馈'
-        },{
-          type: '在用号码',
-          number: 'xxxxxxxxx',
-          latest_time: '2020.02.15',
-          latest_area: '天津市',
-          signed_time: '2018.03.21',
-          feedback: '反馈'
-        },{
-          type: '在用号码',
-          number: 'xxxxxxxxx',
-          latest_time: '2020.02.15',
-          latest_area: '天津市',
-          signed_time: '2018.03.21',
-          feedback: '反馈'
-        },{
-          type: '在用号码',
-          number: 'xxxxxxxxx',
-          latest_time: '2020.02.15',
-          latest_area: '天津市',
-          signed_time: '2018.03.21',
-          feedback: '反馈'
-        },{
-          type: '在用号码',
-          number: 'xxxxxxxxx',
-          latest_time: '2020.02.15',
-          latest_area: '天津市',
-          signed_time: '2018.03.21',
-          feedback: '反馈'
-        },{
-          type: '在用号码',
-          number: 'xxxxxxxxx',
-          latest_time: '2020.02.15',
-          latest_area: '天津市',
-          signed_time: '2018.03.21',
-          feedback: '反馈'
-          }],
-          tableData4: [{
-            type: 'QQ',
-            number: 'xxxxxxxxx',
-            latest_time: '2020.02.15',
-            days: '天津市',
-            signed_time: '2020.03.21',
-            feedback: '反馈'
-          },{
-            type: 'QQ',
-            number: 'xxxxxxxxx',
-            latest_time: '2020.02.15',
-            days: '天津市',
-            signed_time: '2020.03.21',
-            feedback: '反馈'
-          },{
-            type: 'QQ',
-            number: 'xxxxxxxxx',
-            latest_time: '2020.02.15',
-            days: '天津市',
-            signed_time: '2020.03.21',
-            feedback: '反馈'
-          },{
-            type: 'QQ',
-            number: 'xxxxxxxxx',
-            latest_time: '2020.02.15',
-            days: '天津市',
-            signed_time: '2020.03.21',
-            feedback: '反馈'
-          },{
-            type: 'QQ',
-            number: 'xxxxxxxxx',
-            latest_time: '2020.02.15',
-            days: '天津市',
-            signed_time: '2020.03.21',
-            feedback: '反馈'
-          },{
-            type: 'QQ',
-            number: 'xxxxxxxxx',
-            latest_time: '2020.02.15',
-            days: '天津市',
-            signed_time: '2020.03.21',
-            feedback: '反馈'
-          }],
-        }
-      }
+      //     tableData1: [{
+      //     number: '176xxxx7878',
+      //     name: '王小虎',
+      //     time: '1.5h',
+      //     times: '15',
+      //     last_time:'2020.02.15 12:00',
+      //     when:'2020年8月第二次上访'
+      //   }, {
+      //     number: '176xxxx7878',
+      //     name: '王小虎',
+      //     time: '1.5h',
+      //     times: '15',
+      //     last_time:'2020.02.15 12:00',
+      //     when:'2020年8月第二次上访'
+      //   }, {
+      //     number: '176xxxx7878',
+      //     name: '王小虎',
+      //     time: '1.5h',
+      //     times: '15',
+      //     last_time:'2020.02.15 12:00',
+      //     when:'2020年8月第二次上访'
+      //   }, {
+      //     number: '176xxxx7878',
+      //     name: '王小虎',
+      //     time: '1.5h',
+      //     times: '15',
+      //     last_time:'2020.02.15 12:00',
+      //     when:'2020年8月第二次上访'
+      //   }, {
+      //     number: '176xxxx7878',
+      //     name: '王小虎',
+      //     time: '1.5h',
+      //     times: '15',
+      //     last_time:'2020.02.15 12:00',
+      //     when:'2020年8月第二次上访'
+      //   }, {
+      //     number: '176xxxx7878',
+      //     name: '王小虎',
+      //     time: '1.5h',
+      //     times: '15',
+      //     last_time:'2020.02.15 12:00',
+      //     when:'2020年8月第二次上访'
+      //   }, {
+      //     number: '176xxxx7878',
+      //     name: '王小虎',
+      //     time: '1.5h',
+      //     times: '15',
+      //     last_time:'2020.02.15 12:00',
+      //     when:'2020年8月第二次上访'
+      //     }],
+      //     tableData2: [{
+      //     name: 'xxx',
+      //     age: '30',
+      //     number: '176xxxx7878',
+      //     identical: 'xxxxxxxxxxxxxxxx',
+      //     relation:'父子',
+      //     latest_time:'2020.20.20'
+      //   },
+      //   {
+      //     name: 'xxx',
+      //     age: '30',
+      //     number: '176xxxx7878',
+      //     identical: 'xxxxxxxxxxxxxxxx',
+      //     relation:'父子',
+      //     latest_time:'2020.20.20'
+      //   },
+      //   {
+      //     name: 'xxx',
+      //     age: '30',
+      //     number: '176xxxx7878',
+      //     identical: 'xxxxxxxxxxxxxxxx',
+      //     relation:'父子',
+      //     latest_time:'2020.20.20'
+      //   },
+      //   {
+      //     name: 'xxx',
+      //     age: '30',
+      //     number: '176xxxx7878',
+      //     identical: 'xxxxxxxxxxxxxxxx',
+      //     relation:'父子',
+      //     latest_time:'2020.20.20'
+      //   },
+      //   {
+      //     name: 'xxx',
+      //     age: '30',
+      //     number: '176xxxx7878',
+      //     identical: 'xxxxxxxxxxxxxxxx',
+      //     relation:'父子',
+      //     latest_time:'2020.20.20'
+      //   },
+      //   {
+      //     name: 'xxx',
+      //     age: '30',
+      //     number: '176xxxx7878',
+      //     identical: 'xxxxxxxxxxxxxxxx',
+      //     relation:'父子',
+      //     latest_time:'2020.20.20'
+      //     }],
+      //     tableData3: [{
+      //     type: '在用号码',
+      //     number: 'xxxxxxxxx',
+      //     latest_time: '2020.02.15',
+      //     latest_area: '天津市',
+      //     signed_time: '2018.03.21',
+      //     feedback: '反馈'
+      //   },{
+      //     type: '在用号码',
+      //     number: 'xxxxxxxxx',
+      //     latest_time: '2020.02.15',
+      //     latest_area: '天津市',
+      //     signed_time: '2018.03.21',
+      //     feedback: '反馈'
+      //   },{
+      //     type: '在用号码',
+      //     number: 'xxxxxxxxx',
+      //     latest_time: '2020.02.15',
+      //     latest_area: '天津市',
+      //     signed_time: '2018.03.21',
+      //     feedback: '反馈'
+      //   },{
+      //     type: '在用号码',
+      //     number: 'xxxxxxxxx',
+      //     latest_time: '2020.02.15',
+      //     latest_area: '天津市',
+      //     signed_time: '2018.03.21',
+      //     feedback: '反馈'
+      //   },{
+      //     type: '在用号码',
+      //     number: 'xxxxxxxxx',
+      //     latest_time: '2020.02.15',
+      //     latest_area: '天津市',
+      //     signed_time: '2018.03.21',
+      //     feedback: '反馈'
+      //   },{
+      //     type: '在用号码',
+      //     number: 'xxxxxxxxx',
+      //     latest_time: '2020.02.15',
+      //     latest_area: '天津市',
+      //     signed_time: '2018.03.21',
+      //     feedback: '反馈'
+      //     }],
+      //     tableData4: [{
+      //       type: 'QQ',
+      //       number: 'xxxxxxxxx',
+      //       latest_time: '2020.02.15',
+      //       days: '天津市',
+      //       signed_time: '2020.03.21',
+      //       feedback: '反馈'
+      //     },{
+      //       type: 'QQ',
+      //       number: 'xxxxxxxxx',
+      //       latest_time: '2020.02.15',
+      //       days: '天津市',
+      //       signed_time: '2020.03.21',
+      //       feedback: '反馈'
+      //     },{
+      //       type: 'QQ',
+      //       number: 'xxxxxxxxx',
+      //       latest_time: '2020.02.15',
+      //       days: '天津市',
+      //       signed_time: '2020.03.21',
+      //       feedback: '反馈'
+      //     },{
+      //       type: 'QQ',
+      //       number: 'xxxxxxxxx',
+      //       latest_time: '2020.02.15',
+      //       days: '天津市',
+      //       signed_time: '2020.03.21',
+      //       feedback: '反馈'
+      //     },{
+      //       type: 'QQ',
+      //       number: 'xxxxxxxxx',
+      //       latest_time: '2020.02.15',
+      //       days: '天津市',
+      //       signed_time: '2020.03.21',
+      //       feedback: '反馈'
+      //     },{
+      //       type: 'QQ',
+      //       number: 'xxxxxxxxx',
+      //       latest_time: '2020.02.15',
+      //       days: '天津市',
+      //       signed_time: '2020.03.21',
+      //       feedback: '反馈'
+      //     }],
+           }
+         }
     }
 </script>
 

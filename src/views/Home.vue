@@ -34,12 +34,12 @@
                   text-color="#fff"
                   active-text-color="#ffd04b">
                   
-                  <router-link to="/">
+                  <!-- <router-link to="/">
                     <el-menu-item index="1">
                       <i class="el-icon-location"></i>
                       <span slot="title">系统首页</span>
                     </el-menu-item>
-                  </router-link>
+                  </router-link> -->
 
                   <router-link to="/ArchivesPage">
                     <el-menu-item index="2">
@@ -62,24 +62,24 @@
                     </el-menu-item>
                   </router-link>
 
-                  <router-link to="/DrawPage">
+                  <router-link to="/demo">
                     <el-menu-item index="5">
                       <i class="el-icon-camera"></i>
-                      <span slot="title">人员画像</span>
+                      <span slot="title">图谱</span>
                     </el-menu-item>
                   </router-link>
 
-                  <router-link to="/PersonPage">
+                  <!-- <router-link to="/PersonPage">
                     <el-menu-item index="6">
                       <i class="el-icon-user"></i>
                       <span slot="title">人员轨迹</span>
                     </el-menu-item>
-                  </router-link>
+                  </router-link> -->
 
-                  <router-link to="/SettingPage">
-                    <el-menu-item index="7">
+                  <router-link to="/information">
+                    <el-menu-item index="6">
                       <i class="el-icon-setting"></i>
-                      <span slot="title">系统设置</span>
+                      <span slot="title">个人设置</span>
                     </el-menu-item>
                   </router-link>
 
@@ -96,18 +96,17 @@
             <el-main>
               <el-col :span="24">
                 <div class="block">
-                  <el-carousel height="240px">
-                    <el-carousel-item v-for="item in 3" :key="item">
-                      <h3 class="small">管控情况</h3>
-                    </el-carousel-item>
-                  </el-carousel>
+                     <el-carousel height="240px" class="lun_imgs" ref="carousel" @click.native="linkTo">
+                        <el-carousel-item class="lun_img" v-for="item in imgs" v-bind:key="item.url" >
+                          <img :src="item.url"/>
+                        </el-carousel-item>
+                      </el-carousel>
                 </div>
                 <br>
               </el-col>
               <el-col :span="24">
-                <el-row style="margin-left: 50px">
-                  <div id="table1" style="width: 600px;height:400px;float:left;"></div>
-                  <div id="table2" style="width: 400px;height:400px;float:left;"></div>
+                <el-row style="margin-left: 10px">
+                    <BaseCharts/>
                 </el-row>
               </el-col>
             </el-main>
@@ -120,8 +119,27 @@
 </template>
 
 <script>
+import BaseCharts from "./BaseCharts";
 export default {
+   data: function () {
+    return {
+      platform: 'pc',
+      imgs: [
+        {url: require('../img/bg02.png'), link: '/'},
+        {url: require('../img/test2.jpg'), link: '/'},
+        {url: require('../img/test3.jpg'), link: '/'},
+      ]
+    }
+  },
+  components:{
+    BaseCharts
+  }
+  ,
   methods: {
+    linkTo () {
+      let activeIndex = this.$refs.carousel.activeIndex
+      this.$router.push(this.imgs[activeIndex].link)
+    },
     drawChart() {
       let myChart = this.$echarts.init(document.getElementById("table2"));
       let myChart2 = this.$echarts.init(document.getElementById("table1"));
@@ -261,6 +279,13 @@ export default {
 
 .el-container {
   height: 100%;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: white;
+  text-align: center;
 }
 
 .el-header {

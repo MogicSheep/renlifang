@@ -6,9 +6,8 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: () => import("../views/Home.vue"),
-    /*children: [
-      
+    component: () => import("@/components//FocusPage"),
+    /*children: [  
       {
         path: '/ArchivesPage',
         component: ArchivesPage,
@@ -27,9 +26,9 @@ const routes = [
     component: () => import("../views/login/Login.vue")
   },
   {
-    path: '/HomePage',
-    component: () => import("@/components/HomePage.vue"),
-    name: '系统首页',
+    path: '/Home',
+    component: () => import("../views/Home.vue"),
+    name: '后台管理',
     hidden: true
   },
   {
@@ -47,13 +46,13 @@ const routes = [
   {
     path: '/FocusPage',
     component: () => import("@/components/FocusPage.vue"),
-    name: '重点关注',
+    name: '数据可视化平台',
     hidden: true
   },
   {
     path: '/ManagePage',
     component: () => import("@/components/ManagePage.vue"),
-    name: '档案管理',
+    name: '后台人员管理',
     hidden: true
   },
   {
@@ -63,8 +62,8 @@ const routes = [
     hidden: true
   },
   {
-    path: '/SettingPage',
-    component: () => import("@/components/SettingPage.vue"),
+    path: '/information',
+    component: () => import("../views/information/InfoShow.vue"),
     name: '系统设置',
     hidden: true
   },

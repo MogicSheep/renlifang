@@ -21,16 +21,20 @@
                         <el-cow>
                             <el-col span="8" class="coll1">
                                 <br>
-                                <el-button type="primary" @click="addRoutes1" round>档案中心</el-button>
+                                <el-button icon="el-icon-menu" type="primary" @click="addRoutes1" round>档案中心</el-button>
                             </el-col>
                             <el-col span="8" class="coll1">
                                 <br>
-                                <el-button type="primary" @click="addRoutes2" round>人员画像</el-button>
+                                <router-link to="/Home">
+                                    <el-button icon="el-icon-s-home" type="primary" round>后台管理</el-button>
+                                </router-link>
+                                <!-- <el-button type="primary" @click="addRoutes2" round>档案中心</el-button> -->
                             </el-col>
-                            <el-col span="8" class="coll1">
+                            
+                            <!-- <el-col span="8" class="coll1">
                                 <br>
                                 <el-button type="primary" @click="addRoutes3" round>后台管理</el-button>
-                            </el-col>
+                            </el-col> -->
                         </el-cow>
                     </el-col>
                     <el-col span="4">
@@ -85,7 +89,7 @@
                             <div class="xpanel-wrapper xpanel-wrapper-1">
                                 <div class="xpanel">
                                     <div class="fill-h" id="p3">
-                                        <Demo1 style="width:600px;height:600px"></Demo1>
+                                        <Demo1 style="width:800px;height:600px"></Demo1>
                                     </div>
                                 </div>
                             </div>
@@ -155,6 +159,9 @@ export default {
         addRoutes1() {
                 this.$router.push('/ArchivesPage')
             },
+        // addRoutes3() {
+        //     this.$router.push('../views/Home.vue')
+        // },
     drawChart(){
         let myChart = this.$echarts.init(document.getElementById("table1"));
         let option = {

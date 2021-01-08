@@ -89,13 +89,13 @@
           </el-table-column>
           <!-- <el-table-column prop="behave" label="近期表现">
           </el-table-column> -->
-          <el-table-column label="操作" width="250"><button style="border:none;background: orange; color: white; margin-left:10px;height: 20px">
+          <!-- <el-table-column label="操作" width="250"><button style="border:none;background: orange; color: white; margin-left:10px;height: 20px">
             <i class="el-icon-star-on"></i>收藏</button>
           <button style="border:none;background: lightblue; color: white; margin-left:10px;height: 20px;">
             <i class="el-icon-document"></i>详情</button>
           <button style="border:none;background: lightgreen; color: white; margin-left:10px;height: 20px;">
             <i class="el-icon-remove-outline"></i>隐藏</button>
-          </el-table-column>
+          </el-table-column> -->
         </el-table>
       </el-body>
       </el-main>
@@ -167,8 +167,7 @@
         address: '新冠肺炎疫情大数据分析与区域防控政策建议',
         major: '地图学与地理信息系统',
         // behave: '近期表现',
-        operation:'',
-        
+        operation:'normal',
       };
       //shearchRange: '全部字段'
       return {
